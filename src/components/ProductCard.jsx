@@ -1,8 +1,8 @@
 export default function ProductCard({ product }) {
   return (
-    <div className=" shadow-lg hover:shadow-lg transition-shadow duration-300 overflow-hidden bg-white h-full flex flex-col">
+    <div className="shadow-[0_10px_30px_rgba(0,9,45,0.12)] hover:shadow-[0_16px_42px_rgba(0,9,45,0.18)] transition-shadow duration-300 overflow-hidden bg-white h-full flex flex-col rounded-lg border border-[#00092d]/5">
       {/* Image Container */}
-      <div className="relative h-60 bg-gray-50 flex items-center justify-center p-4">
+      <div className="relative h-60 bg-white flex items-center justify-center p-4 rounded-t-lg border-b border-[#00092d]/10">
         {/* Hot Badge */}
         {product.isHot && (
           <span className="absolute top-3 left-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white text-[10px] font-bold px-3 py-1 rounded-md z-10 shadow-md flex items-center">
@@ -23,7 +23,9 @@ export default function ProductCard({ product }) {
           <img
             src={product.image}
             alt={product.title}
-            className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105"
+            loading="lazy"
+            decoding="async"
+            className="w-40 h-40 md:w-48 md:h-48 object-contain transition-transform duration-300 hover:scale-105"
             onError={(e) => {
               e.target.src = 'https://via.placeholder.com/300x300?text=No+Image';
             }}
@@ -45,30 +47,11 @@ export default function ProductCard({ product }) {
           {product.title}
         </h3>
 
-        {/* Rating */}
-        <div className="flex items-center mb-2">
-          <div className="flex text-yellow-400">
-            {[...Array(5)].map((_, i) => (
-              <span key={i}>★</span>
-            ))}
-          </div>
-          {product.rating && (
-            <span className="ml-1 text-gray-500 text-sm">({product.rating})</span>
-          )}
-        </div>
-
-        {/* Seller */}
-        {product.seller && (
-          <p className="text-sm text-gray-500 mb-3">
-            By <span className="text-red-500 font-medium">{product.seller}</span>
-          </p>
-        )}
-
         {/* Price + Add Button */}
         <div className="mt-4 flex flex-col">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-baseline">
-              <span className="text-green-600 font-bold text-xl">
+              <span className="text-black font-bold text-xl">
                 ${product.price.toFixed(2)}
               </span>
               {product.oldPrice && (
@@ -79,7 +62,7 @@ export default function ProductCard({ product }) {
             </div>
           </div>
           <button 
-            className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-medium py-2.5 px-4 rounded-md shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+            className="w-full bg-[#00092d] hover:bg-[#00092d] text-white font-medium py-2.5 px-4 rounded-md shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />

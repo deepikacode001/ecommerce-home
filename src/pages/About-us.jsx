@@ -1,122 +1,169 @@
-import React from 'react'
-import Footer from '../components/Footer';
+import React from "react";
+import { motion } from "framer-motion";
+import aboutUsImage from "../assets/parfum.jpg";
+import Footer from "../components/Footer";
 
+const stats = [
+  { value: "100+", label: "Vendors" },
+  { value: "23K+", label: "Customers" },
+  { value: "2K+", label: "Products" },
+  { value: "5+", label: "Years Experience" },
+];
+
+const services = [
+  {
+    title: "Fast Delivery",
+    description: "Quick and reliable delivery to your doorstep",
+    icon: "🚚",
+  },
+  {
+    title: "24/7 Support",
+    description: "Round-the-clock customer service",
+    icon: "🛎️",
+  },
+  {
+    title: "Quality Products",
+    description: "Carefully curated selection",
+    icon: "✨",
+  },
+  {
+    title: "Secure Payment",
+    description: "100% secure checkout",
+    icon: "💳",
+  },
+];
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
 
 export default function AboutUs() {
-    return (
-      <div className="bg-white">
-        {/* Top Banner */}
-        <div className="bg-red-500 text-white py-3 px-10 flex justify-between items-center">
-          <span className="font-semibold">About Us</span>
-          <span className="text-sm">Home / About Us</span>
+  return (
+    <div className="bg-gray-50">
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-black to-black text-white py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
+            <p className="text-xl text-black">Home / About Us</p>
+          </motion.div>
         </div>
-  
-        {/* About Section with Image */}
-        <section className="px-4 sm:px-6 lg:px-8 py-16 max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Text Content */}
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold mb-6">About The Carrot</h2>
-              <p className="text-gray-600 mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-                recusandae perspiciatis. Sequi incidunt dolore cupiditate pariatur
-                earum iste beatae assumenda rerum quas temporibus magni cumque
-                voluptatibus neque.
-              </p>
-              <p className="text-gray-600 mb-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At non rerum
-                cum ducimus magnam consequuntur architecto, ipsam deleniti dolorem
-                doloribus suscipit voluptatibus quas provident amet.
-              </p>
-              <p className="text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium,
-                maxime amet architecto est exercitationem optio eum molestias corporis
-                dolores, distinctio doloribus libero nesciunt quis illum? Voluptates
-                deserunt adipisci voluptatibus magni sunt sed blanditiis quod
-                aspernatur iusto?
-              </p>
-            </div>
-            
-            {/* Image */}
-            <div className="lg:w-1/2">
-              <img 
-                src="/src/assets/aboutus.jpg" 
-                alt="Fresh groceries" 
-                className="rounded-lg shadow-lg w-full h-auto"
-              />
-            </div>
-          </div>
-  
-        </section>
-
-        {/* Stats Section with Image */}
-        <section className="bg-gray-50 py-16">
-          <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
-              {/* Image */}
-              <div className="lg:w-1/2">
-                <img 
-                  src="/src/assets/aboutus.jpg" 
-                  alt="Fresh vegetables" 
-                  className="rounded-lg shadow-lg w-full h-auto"
-                />
-              </div>
-              
-              {/* Stats */}
-              <div className="lg:w-1/2 grid grid-cols-2 gap-8">
-                <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-                  <p className="text-red-500 text-3xl font-bold mb-2">0.1k</p>
-                  <p className="text-gray-600 font-medium">Vendors</p>
-                </div>
-                <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-                  <p className="text-red-500 text-3xl font-bold mb-2">23k</p>
-                  <p className="text-gray-600 font-medium">Customers</p>
-                </div>
-                <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-                  <p className="text-red-500 text-3xl font-bold mb-2">2k</p>
-                  <p className="text-gray-600 font-medium">Products</p>
-                </div>
-                <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-                  <p className="text-red-500 text-3xl font-bold mb-2">5+</p>
-                  <p className="text-gray-600 font-medium">Years Experience</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="px-4 sm:px-6 lg:px-8 py-16 max-w-7xl mx-auto">
-  
-          {/* Services */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="font-semibold mb-2">Product Packing</h3>
-              <p className="text-sm text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="font-semibold mb-2">24X7 Support</h3>
-              <p className="text-sm text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="font-semibold mb-2">Delivery in 5 Days</h3>
-              <p className="text-sm text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </p>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="font-semibold mb-2">Payment Secure</h3>
-              <p className="text-sm text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </p>
-            </div>
-          </div>
-        </section>
-        <Footer />
       </div>
-    );
-  }
+
+      {/* About Section */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <motion.div
+              className="lg:w-1/2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={aboutUsImage}
+                  alt="Our Team"
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <span className="text-sm font-medium bg-[#00092d] px-3 py-1 rounded-full">
+                    Since 2018
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="lg:w-1/2"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              transition={{ delay: 0.2 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+                Welcome to <span className="text-[#00092d]">ShopEase</span>
+              </h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                At AuraScents, we believe that every fragrance tells a story.
+                Founded in 2018, we’ve grown from a small passion project into a
+                trusted perfume brand, delivering timeless and luxurious scents
+                to thousands of fragrance lovers nationwide. Our mission is
+                simple: to craft high-quality perfumes, provide exceptional
+                customer care, and create an unforgettable fragrance experience
+                that stays with you long after the first spray.
+              </p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Our mission is simple: to provide high-quality products,
+                exceptional customer service, and a seamless shopping experience
+                that keeps you coming back for more.
+              </p>
+              <div className="grid grid-cols-2 gap-6 mt-10">
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-[#00092d] p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow"
+                    whileHover={{ y: -5 }}
+                  >
+                    <p className="text-3xl font-bold text-white mb-2">
+                      {stat.value}
+                    </p>
+                    <p className="text-white font-medium">{stat.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Why Choose Us
+            </h2>
+            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className="bg-[#00092d] p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <div className="text-4xl mb-4">{service.icon}</div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-white">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
+}

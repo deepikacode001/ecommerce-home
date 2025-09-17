@@ -34,7 +34,7 @@ export default function ContactUs() {
   return (
     <div className="bg-white">
       {/* Top Banner */}
-      <div className="bg-red-500 text-white py-3 px-10 flex justify-between items-center">
+      <div className="bg-black text-white py-3 px-10 flex justify-between items-center">
         <span className="font-semibold">Contact Us</span>
         <span className="text-sm">Home / Contact Us</span>
       </div>
@@ -63,7 +63,7 @@ export default function ContactUs() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black"
                   required
                 />
               </div>
@@ -78,7 +78,7 @@ export default function ContactUs() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black"
                   required
                 />
               </div>
@@ -93,7 +93,7 @@ export default function ContactUs() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black"
                   required
                 />
               </div>
@@ -108,14 +108,14 @@ export default function ContactUs() {
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black"
                   required
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-red-500 text-white py-3 px-6 rounded-md hover:bg-red-600 transition duration-300 flex items-center justify-center"
+                className="w-full bg-black text-white py-3 px-6 rounded-md hover:bg-black/80 transition duration-300 flex items-center justify-center"
               >
                 <FaPaperPlane className="mr-2" /> Send Message
               </button>
@@ -133,7 +133,7 @@ export default function ContactUs() {
 
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-red-500">
+                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-black">
                   <FaMapMarkerAlt size={20} />
                 </div>
                 <div className="ml-4">
@@ -143,7 +143,7 @@ export default function ContactUs() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-red-500">
+                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-black">
                   <FaPhoneAlt size={20} />
                 </div>
                 <div className="ml-4">
@@ -154,7 +154,7 @@ export default function ContactUs() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-red-500">
+                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-black">
                   <FaEnvelope size={20} />
                 </div>
                 <div className="ml-4">
@@ -165,7 +165,7 @@ export default function ContactUs() {
               </div>
 
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-red-500">
+                <div className="flex-shrink-0 bg-red-100 p-3 rounded-full text-black">
                   <FaClock size={20} />
                 </div>
                 <div className="ml-4">
