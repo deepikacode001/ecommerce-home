@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aboutUsImage from "../assets/parfum.jpg";
+import aboutBanner from "../assets/about-us-banner.jpg";
 import Footer from "../components/Footer";
 
 const stats = [
@@ -46,16 +47,24 @@ export default function AboutUs() {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-black to-black text-white py-16 md:py-24">
+      <div
+        className="relative text-white py-16 md:py-24"
+        style={{
+          backgroundImage: `url(${aboutBanner})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60" aria-hidden="true"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
+            className="relative text-center"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-            <p className="text-xl text-black">Home / About Us</p>
+            <p className="text-xl text-gray-200">Home / About Us</p>
           </motion.div>
         </div>
       </div>
@@ -79,7 +88,7 @@ export default function AboutUs() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <span className="text-sm font-medium bg-[#00092d] px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium bg-black px-3 py-1 rounded-full">
                     Since 2018
                   </span>
                 </div>
@@ -98,13 +107,11 @@ export default function AboutUs() {
                 Welcome to <span className="text-[#00092d]">ShopEase</span>
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                At AuraScents, we believe that every fragrance tells a story.
-                Founded in 2018, we’ve grown from a small passion project into a
-                trusted perfume brand, delivering timeless and luxurious scents
-                to thousands of fragrance lovers nationwide. Our mission is
-                simple: to craft high-quality perfumes, provide exceptional
-                customer care, and create an unforgettable fragrance experience
-                that stays with you long after the first spray.
+                Our journey began in a small workshop where we created our very
+                first perfume blend. Each fragrance carried a story – of
+                emotions, memories, and originality. Even today, we stay true to
+                our roots, crafting perfumes with the same dedication and
+                artistry to make your moments unforgettable.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Our mission is simple: to provide high-quality products,
@@ -115,13 +122,13 @@ export default function AboutUs() {
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
-                    className="bg-[#00092d] p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow"
+                    className={`${index % 2 === 0 ? "bg-black text-white" : "bg-white text-black border border-gray-200"} p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow`}
                     whileHover={{ y: -5 }}
                   >
-                    <p className="text-3xl font-bold text-white mb-2">
+                    <p className="text-3xl font-bold mb-2">
                       {stat.value}
                     </p>
-                    <p className="text-white font-medium">{stat.label}</p>
+                    <p className="font-medium">{stat.label}</p>
                   </motion.div>
                 ))}
               </div>
@@ -144,7 +151,7 @@ export default function AboutUs() {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-[#00092d] p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all"
+                className={`${index % 2 === 0 ? "bg-black text-white" : "bg-white text-black border border-gray-200"} p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -152,12 +159,61 @@ export default function AboutUs() {
                 whileHover={{ scale: 1.03 }}
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-3">
+                <h3 className="text-xl font-bold mb-3">
                   {service.title}
                 </h3>
-                <p className="text-white">{service.description}</p>
+                <p>{service.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Best Selling Perfumes */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Best Selling Perfumes</h2>
+            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
+          </div>
+          <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto text-center">
+            Our best-selling perfumes are the ones that have touched the hearts of our customers. Each fragrance is a perfect blend of uniqueness and elegance. These perfumes are not just scents, but experiences that make you feel classy, confident, and unforgettable.
+          </p>
+        </div>
+      </section>
+
+      {/* About the Company */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">About the Company</h2>
+            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-gray-700 text-lg leading-relaxed">
+              We are a premium perfume brand that believes in quality and luxury. Every perfume is carefully crafted with the finest ingredients to deliver a long-lasting and memorable fragrance.
+            </p>
+            <p className="text-gray-800 font-semibold mt-6 text-center">
+              Our mission is simple – “To craft timeless fragrances that reflect your personality.”
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Revive Section (Customer Connection) */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Revive Section</h2>
+            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-gray-700 text-lg leading-relaxed mb-6 text-center">
+              A perfume is more than just a fragrance – it is part of your identity and mood. We believe a good fragrance has the power to revive your spirit and make every moment special.
+            </p>
+            <p className="text-gray-700 text-lg leading-relaxed text-center">
+              Revive yourself with our exclusive collection – because every day deserves an unforgettable fragrance.
+            </p>
           </div>
         </div>
       </section>

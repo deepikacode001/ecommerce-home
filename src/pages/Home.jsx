@@ -11,7 +11,7 @@ const sampleProducts = [
     id: 1,
     title: "Mystic Oud",
     price: 2999,
-    image: "/src/assets/perfume-bottle-nature.jpg",
+    image: "/src/assets/hero.jpg",
     category: "Men",
   },
   {
@@ -19,14 +19,14 @@ const sampleProducts = [
     title: "Rose Bloom",
     price: 1999,
     discount: 20,
-    image: "/src/assets/perfume-bottle-nature.jpg",
+    image: "/src/assets/hero.jpg",
     category: "Women",
   },
   {
     id: 3,
     title: "Citrus Fresh",
     price: 1499,
-    image: "/src/assets/perfume-bottle-nature.jpg",
+    image: "/src/assets/hero.jpg",
     category: "Unisex",
   },
   {
@@ -34,7 +34,7 @@ const sampleProducts = [
     title: "Vanilla Essence",
     price: 2499,
     discount: 17,
-    image: "/src/assets/perfume-bottle-nature.jpg",
+    image: "/src/assets/hero.jpg",
     category: "Women",
   },
 ];
@@ -65,28 +65,36 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Our New Collection</h2>
           <p className="mt-4 text-lg text-gray-500">Check out our most popular products</p>
         </div>
+        {/* Four-card layout (responsive grid) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {sampleProducts.slice(0, 4).map((product) => (
-            <div
-              key={product.id}
-              className="bg-[#121416] rounded-xl border border-[#272a2f] overflow-hidden shadow-[0_6px_24px_rgba(0,0,0,0.25)]"
-            >
-              <div className="w-full h-60 bg-[#0f1113] flex items-center justify-center">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="max-h-full max-w-full object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="px-4 py-3 border-t border-[#272a2f]">
-                <h3 className="text-gray-200 text-sm md:text-base line-clamp-2">{product.title}</h3>
-                <div className="text-gray-300 mt-1 text-sm">
-                  Rs. {Number(product.price).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+          {sampleProducts.slice(0, 4).map((p) => (
+            <article key={p.id} className="bg-black text-white rounded-2xl shadow-2xl overflow-hidden">
+              <div className="p-6">
+                <div className="bg-gray-900 rounded-lg overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-[280px] sm:h-[320px] md:h-[360px] lg:h-[420px] object-cover block"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <div className="mt-5">
+                  <h3 className="text-lg font-semibold">{p.title}</h3>
+                  <p className="text-sm text-gray-300 mt-2">{p.category || "Premium fragrance"}</p>
+                  <p className="mt-4 font-medium text-amber-300">
+                    Rs. {Number(p.price).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </p>
+
+                  <button className="mt-6 w-full bg-amber-400 text-black py-3 rounded-md font-semibold hover:opacity-95">
+                    Add to cart
+                  </button>
+
+                  <div className="mt-3 text-xs text-gray-400">♡ Add to Wishlist</div>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
@@ -186,6 +194,16 @@ export default function Home() {
                 {num}
               </button>
             ))}
+          </div>
+
+          {/* View All Products CTA */}
+          <div className="mt-8 flex justify-center">
+            <Link
+              to="/products"
+              className="inline-block px-6 py-3 bg-black text-white rounded-md hover:bg-gray-900 transition"
+            >
+              View All Products
+            </Link>
           </div>
         </div>
       </section>

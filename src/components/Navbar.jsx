@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaHeart, FaShoppingCart, FaBars, FaSearch } from "react-icons/fa";
-import logo from "../assets/logo-2.png";
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const [category, setCategory] = useState("All Categories");
