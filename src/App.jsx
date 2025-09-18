@@ -6,6 +6,8 @@ import Contact from "./pages/Contact-us";
 import Blog from "./pages/Blog";
 import Login from "./pages/login";
 import Products from "./pages/Products";
+
+
 function App() {
   return (
     <Router>

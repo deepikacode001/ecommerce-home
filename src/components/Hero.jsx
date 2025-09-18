@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import aboutBanner from "../assets/finalbanner.jpg";
-
+import aboutBanner from "../assets/hero-1.jpg";
+import PromoSection from "./PromoSection";
 export default function HeroSection() {
   return (
     <section
-      className="relative text-white w-full h-[260px] sm:h-[340px] md:h-[440px] lg:h-[660px]"
+      className="relative text-white w-full h-[360px] sm:h-[340px] md:h-[440px] lg:h-[660px]"
       style={{
         backgroundImage: `url(${aboutBanner})`,
         backgroundSize: "cover",
@@ -18,17 +18,18 @@ export default function HeroSection() {
         {/* Text Content */}
         <div className="text-center lg:text-left">
           <h1 className="text-4xl font-bold text-white mb-6">
-            Keep your body fresh with <br>
-            </br>a good  perfume
+          Elevate Your Spirit with , <br/> Victory Scented Fragrances!
           </h1>
-          <p className="text-gray-200 mb-6">
-            Discover our exclusive range of perfumes crafted to perfection
+          <p className="text-gray-200 mb-6 text-lg font-medium">
+          Shop now and embrace the sweet smell of  <br />victory with Local Face. 
+
           </p>
-          <Link to="/contact-us" className="inline-block bg-black text-white px-6 py-3 rounded-lg shadow hover:bg-[#00092d] transition">
+          <Link to="/contact-us" className="inline-block bg-[#AB572D] text-white px-6 py-3 rounded-lg shadow hover:bg-[#AB572D] transition">
             Shop Now
           </Link>
         </div>
       </div>
+      <PromoSection />
     </section>
   );
 }

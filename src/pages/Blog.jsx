@@ -1,109 +1,91 @@
- import React from "react";
+import React from "react";
 import Footer from "../components/Footer";
+import heroImg from "../assets/siran__chan_Perfume_set_with_wholesale_for_sale_c88211da-f0f2-4adc-8903-439a0d003f02 1.png";
+import bottleMacro from "../assets/dark_redeemer_luxury_perfume_photography_masculine_sandalwood_b_253fc698-f054-467d-b059-b68a0104528a 1.png";
+import trioImg from "../assets/dartistana_create_a_professional_product_shoot_of_3_perfume_bot_3e6bf181-e7e3-410a-96fa-977eb5e88c24 1.png";
 
 const BlogPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-red-500 text-white py-3 px-6 text-lg font-semibold">
-        Blog Details
-      </header>
-
-      {/* Blog Image */}
-      <div className="max-w-5xl mx-auto p-6">
-        <img
-          src="/src/assets/blog.jpg"
-          alt="Blog Main"
-          className="w-full h-[400px] object-cover rounded-lg shadow-md"
-        />
-
-        {/* Blog Meta */}
-        <div className="mt-6 text-sm text-gray-500">
-          <span className="text-red-500 font-semibold">By Admin</span> / 07 Comments / Date - 09.09.2024
-        </div>
-
-        {/* Blog Title */}
-        <h1 className="text-3xl font-bold mt-3 text-gray-800">
-          Health Benefits of a Row food
+    <div className="min-h-screen bg-[#0d0f10] text-white">
+      {/* Hero */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        <p className="text-center text-xs text-gray-400">January 5th • Perfume Collections</p>
+        <h1 className="text-center text-3xl sm:text-4xl lg:text-5xl font-semibold mt-3 leading-snug">
+          The Art of Curating a Luxury Perfume Collection:
+          <br className="hidden sm:block" /> A Symphony of Scents and Stories
         </h1>
+        <div className="mt-8 rounded-xl overflow-hidden border border-[#1a1d21]">
+          <img src={trioImg} alt="Perfume Trio" className="w-full h-[260px] sm:h-[360px] lg:h-[420px] object-cover" />
+        </div>
+      </div>
 
-        {/* Blog Content */}
-        <p className="mt-4 text-gray-600 leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde mollitia
-          aut sunt reprehenderit natus, soluta officia iure enim itaque, hic qui
-          exercitationem et odit beatae debitis dolore molestiae quis ullam.
-        </p>
-        <p className="mt-3 text-gray-600 leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed dolorum
-          obcaecati nobis rem voluptatum laudantium magni veritatis amet?
-          Aspernatur est quisquam modi laudantium. Assumenda neque vitae corrupti
-          asperiores, quos vel eligendi hic hic numquam reprehenderit dolorem
-          placeat natus est.
+      {/* Content */}
+      <article className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <p className="text-gray-300 leading-7">
+          Building a personal perfume library is a celebration of self-expression. Like a fine selection of your
+          favorite music, each bottle preserves a memory, mood, or chapter of life. This guide explores how to craft
+          a collection that feels intentional and inspiring—curated with quality, story, and style.
         </p>
 
-        {/* Sub Images Section */}
-        <div className="grid md:grid-cols-2 gap-6 mt-6">
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img
-              src="https://img.freepik.com/free-photo/fresh-juice-glass-apple_144627-24894.jpg"
-              alt="Juice"
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="font-semibold text-gray-800">
-                Lorem ipsum dolor
-              </h3>
-              <p className="text-sm text-gray-600 mt-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias, dolorum!
+        <hr className="my-8 border-[#1a1d21]" />
+
+        <section className="grid lg:grid-cols-2 gap-8 items-start">
+          <div>
+            <h2 className="text-xl font-semibold text-[#e58e54] mb-3">The Perfume Collection: A Personal Overture</h2>
+            <p className="text-gray-300 leading-7">
+              Your collection should be a reflection of you. Begin by choosing a few personal “pillars”—daytime freshness,
+              evening elegance, and a signature scent. Add seasonal twists or travel finds to broaden your palette without
+              losing your unique voice.
+            </p>
+          </div>
+          <div className="rounded-lg overflow-hidden border border-[#1a1d21]">
+            <img src={bottleMacro} alt="Citrus and florals" className="w-full h-64 object-cover" />
+          </div>
+        </section>
+
+        <section className="mt-10 grid lg:grid-cols-2 gap-8 items-start">
+          <div className="rounded-lg overflow-hidden border border-[#1a1d21] order-first lg:order-none">
+            <img src={heroImg} alt="Exploring notes" className="w-full h-64 object-cover" />
+          </div>
+          <div>
+            <h2 className="text-xl font-semibold text-[#e58e54] mb-3">Exploring the Fragrance Palette</h2>
+            <p className="text-gray-300 leading-7">
+              From citrus and aromatics to woods, ambers, and gourmands—notes are your colors. Discover which families you
+              gravitate toward, then explore flankers and concentrations (EDT/EDP/Parfum) to find your preferred intensity
+              and performance.
+            </p>
+          </div>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold text-[#e58e54] mb-3">Perfume as an Art Form</h2>
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            <div>
+              <p className="text-gray-300 leading-7">
+                Presentation is part of the experience—display your favorites on a clean, low-light shelf away from heat.
+                Keep boxes for limited editions, and label decants for easy reference. Maintain your bottles by keeping
+                sprayers clean and caps secured to preserve longevity.
+              </p>
+              <p className="text-gray-300 leading-7 mt-4">
+                Curating thoughtfully turns a group of bottles into a living gallery of identity and taste.
               </p>
             </div>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img
-              src="https://img.freepik.com/free-photo/top-view-healthy-foods-arrangement_23-2148723262.jpg"
-              alt="Healthy Food"
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-              <h3 className="font-semibold text-gray-800">
-                Lorem ipsum dolor
-              </h3>
-              <p className="text-sm text-gray-600 mt-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Molestias, dolorum!
-              </p>
+            <div className="rounded-lg overflow-hidden border border-[#1a1d21]">
+              <img src={trioImg} alt="Bottle trio" className="w-full h-64 object-cover" />
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Author Section */}
-        <div className="mt-6 p-4 border-l-4 border-red-500 bg-gray-100 rounded">
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
-            saepe odio quos ab officiis deleniti illo numquam? Quam blanditiis
-            possimus quae, iure dolorum, est aliquam deserunt pariatur voluptate
-            cum iure exercitationem rem.
-          </p>
-          <p className="mt-3 font-semibold text-red-600">John Martin</p>
-        </div>
-
-        {/* Tags */}
-        <div className="mt-6 flex flex-wrap gap-2">
-          {['Cabbage', 'Apple', 'Meat Food'].map((tag, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded-full cursor-pointer hover:bg-red-500 hover:text-white transition"
-            >
+        <div className="mt-12 flex flex-wrap gap-2">
+          {["Curating", "Notes", "Longevity", "Display"].map((tag) => (
+            <span key={tag} className="px-3 py-1 rounded-full bg-[#1a1d21] text-gray-300 text-xs">
               {tag}
             </span>
           ))}
         </div>
-      </div>
-      <div>
-        <Footer />
-      </div>
+      </article>
+
+      <Footer />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Paths to the images that were provided in the conversation
 const bookImg = "/mnt/data/3f042b3e-d79a-41a0-bf6f-6ca2ddfbea9d.png";
@@ -52,6 +53,14 @@ export default function ProductCardMatch() {
                 </button>
 
                 <div className="mt-3 text-xs text-gray-400">♡ Add to Wishlist</div>
+
+                {/* Product Details Link */}
+                <Link
+                  to="/ProductDetails"
+                  className="mt-3 inline-flex items-center justify-center w-full px-4 py-2 border border-amber-400 text-amber-300 rounded-md hover:bg-amber-400 hover:text-black transition"
+                >
+                  View Details
+                </Link>
               </div>
             </div>
           </article>

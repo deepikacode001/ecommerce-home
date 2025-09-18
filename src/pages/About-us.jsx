@@ -1,7 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
-import aboutUsImage from "../assets/parfum.jpg";
-import aboutBanner from "../assets/about-us-banner.jpg";
+// About page for Local Face
+import aboutUsImage from "../assets/aboutusbanner.png";
+import aboutBanner from "../assets/g1.png";
 import Footer from "../components/Footer";
 
 const stats = [
@@ -45,10 +45,10 @@ const fadeIn = {
 
 export default function AboutUs() {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-[#0d0f10] text-white">
       {/* Hero Section */}
       <div
-        className="relative text-white py-16 md:py-24"
+        className="relative py-16 md:py-24"
         style={{
           backgroundImage: `url(${aboutBanner})`,
           backgroundSize: "cover",
@@ -56,165 +56,100 @@ export default function AboutUs() {
         }}
       >
         <div className="absolute inset-0 bg-black/60" aria-hidden="true"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="relative text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-            <p className="text-xl text-gray-200">Home / About Us</p>
-          </motion.div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl md:max-w-4xl p-6 md:p-10 text-center">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">About Us</h1>
+            <p className="text-sm md:text-base text-gray-200">
+              At Local Face, we believe that perfumes are more than just scents;
+              they are expressions of one's individuality and style. Our passion
+              for exquisite fragrances led us to curate a collection that
+              captures the essence of diverse personalities, bringing you an
+              unparalleled olfactory experience.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* About Section */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <motion.div
-              className="lg:w-1/2"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={aboutUsImage}
-                  alt="Our Team"
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <span className="text-sm font-medium bg-black px-3 py-1 rounded-full">
-                    Since 2018
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="lg:w-1/2"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              transition={{ delay: 0.2 }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-                Welcome to <span className="text-[#00092d]">ShopEase</span>
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Our journey began in a small workshop where we created our very
-                first perfume blend. Each fragrance carried a story – of
-                emotions, memories, and originality. Even today, we stay true to
-                our roots, crafting perfumes with the same dedication and
-                artistry to make your moments unforgettable.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Our mission is simple: to provide high-quality products,
-                exceptional customer service, and a seamless shopping experience
-                that keeps you coming back for more.
-              </p>
-              <div className="grid grid-cols-2 gap-6 mt-10">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    className={`${index % 2 === 0 ? "bg-black text-white" : "bg-white text-black border border-gray-200"} p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow`}
-                    whileHover={{ y: -5 }}
-                  >
-                    <p className="text-3xl font-bold mb-2">
-                      {stat.value}
-                    </p>
-                    <p className="font-medium">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-              Why Choose Us
-            </h2>
-            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className={`${index % 2 === 0 ? "bg-black text-white" : "bg-white text-black border border-gray-200"} p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-all`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.03 }}
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-3">
-                  {service.title}
-                </h3>
-                <p>{service.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Best Selling Perfumes */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Best Selling Perfumes</h2>
-            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
-          </div>
-          <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto text-center">
-            Our best-selling perfumes are the ones that have touched the hearts of our customers. Each fragrance is a perfect blend of uniqueness and elegance. These perfumes are not just scents, but experiences that make you feel classy, confident, and unforgettable.
+      {/* Our Story */}
+      <section className="py-16 w-full h-[450px]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-20">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#e58e54] mb-4">
+            Our Story
+          </h2>
+          <p className="text-gray-300 leading-relaxed">
+            Local Face Perfumes was founded by a group of scent enthusiasts,
+            with a shared vision to celebrate individuality through fragrances.
+            From our earliest blends to our latest creations, we’ve remained
+            devoted to craftsmanship and quality—designing perfumes that speak
+            to the heart and tell a story of culture, memory, and art of
+            perfumery.
           </p>
         </div>
       </section>
 
-      {/* About the Company */}
-      <section className="py-16 bg-gray-50">
+      {/* Showcase Image */}
+      <section className="pb-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">About the Company</h2>
-            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-gray-700 text-lg leading-relaxed">
-              We are a premium perfume brand that believes in quality and luxury. Every perfume is carefully crafted with the finest ingredients to deliver a long-lasting and memorable fragrance.
-            </p>
-            <p className="text-gray-800 font-semibold mt-6 text-center">
-              Our mission is simple – “To craft timeless fragrances that reflect your personality.”
-            </p>
+          <div className="rounded-xl overflow-hidden">
+            <img
+              src={aboutUsImage}
+              alt="Perfume bottles"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
       </section>
 
-      {/* Revive Section (Customer Connection) */}
-      <section className="py-16 bg-white">
+      {/* What Makes Us Unique */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Revive Section</h2>
-            <div className="w-20 h-1 bg-[#00092d] mx-auto"></div>
+          <h3 className="text-center text-2xl md:text-3xl font-semibold text-[#e58e54] mb-10">
+            What Makes Us Unique
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-300">
+            <div>
+              <h4 className="text-white font-semibold mb-2">
+                Locally Inspired
+              </h4>
+              <p>
+                Our creations draw from meaningful cultural influences,
+                resulting in fragrances that feel intimate, elegant, and true to
+                you.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-2">
+                High Quality Ingredients
+              </h4>
+              <p>
+                We select premium, ethically sourced materials to ensure
+                long-lasting, well-balanced scents with exceptional sillage.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-2">
+                Personalized Service
+              </h4>
+              <p>
+                From thoughtful recommendations to attentive customer care,
+                we’re dedicated to making your fragrance journey memorable.
+              </p>
+            </div>
           </div>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-gray-700 text-lg leading-relaxed mb-6 text-center">
-              A perfume is more than just a fragrance – it is part of your identity and mood. We believe a good fragrance has the power to revive your spirit and make every moment special.
-            </p>
-            <p className="text-gray-700 text-lg leading-relaxed text-center">
-              Revive yourself with our exclusive collection – because every day deserves an unforgettable fragrance.
-            </p>
-          </div>
+          <p className="text-start text-gray-400 mt-10 max-w-4xl mx-auto">
+            Join us on this olfactory adventure as we celebrate the diverse
+            tapestry of scents from around the world. Discover the captivating
+            aromas that embrace the essence of local cultures and connect with
+            the beauty of our shared humanity.
+            <br />
+            <br />
+            <br />
+            Thank you for being a part of our
+            <br />
+            <br />
+            <br />
+            journey. With love and gratitude, The Local Face Perfumes Team
+          </p>
         </div>
       </section>
 

@@ -33,7 +33,7 @@ export default function Navbar() {
             src={logo}
             alt="Logo"
             width={250}
-            height={250}
+            height={150}
             className="object-contain"
           />
         </div>
