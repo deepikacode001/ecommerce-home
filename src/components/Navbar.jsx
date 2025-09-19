@@ -1,24 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaHeart, FaShoppingCart, FaBars, FaSearch } from "react-icons/fa";
-import logo from "../assets/logo.png";
 
 export default function Navbar() {
-  const [category, setCategory] = useState("All Categories");
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="w-full sticky top-0 bg-white border-b shadow-sm z-50">
-      {/* 🔹 Top Contact Bar */}
-      <div className="bg-black text-right text-sm py-1 px-6 w-full text-white">
-         +123 (456) 7890
-      </div>
-
-      {/* 🔹 Main Navbar */}
-      <div className="flex items-center justify-between px-6 py-4 w-full h-20 max-w-[1440px] mx-auto">
-        
-        {/* Left: Logo + Hamburger */}
+    <header className="w-full sticky top-0 bg-black text-white z-50">
+      {/* Main Navbar - single row */}
+      <div className="flex items-center justify-between px-6 w-full h-16 max-w-[1440px] mx-auto">
+        {/* Left: Brand + Hamburger on mobile */}
         <div className="flex items-center gap-3">
           <button
             className="md:hidden text-xl"
@@ -27,91 +18,51 @@ export default function Navbar() {
           >
             <FaBars />
           </button>
-          {/* <h1 className="text-2xl font-bold text-green-600">Foodzy</h1>
-          <span className="text-xs text-gray-500">A Treasure of Tastes</span> */}
-          <img
-            src={logo}
-            alt="Logo"
-            width={250}
-            height={150}
-            className="object-contain"
-          />
+          <Link to="/" className="select-none">
+            <span className="text-2xl font-extrabold tracking-wide">
+              <span className="text-orange-500">Local</span> Face
+            </span>
+          </Link>
         </div>
 
-        {/* Center: Search Bar */}
-        <div className="hidden md:flex flex-1 mx-6 border rounded overflow-hidden h-12">
-          <input 
-            type="text" 
-            placeholder="Search for items..." 
-            className="flex-1 px-3 outline-none"
-          />
-          <select 
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="border-l px-2 text-gray-600 outline-none"
-          >
-            <option>All Categories</option>
-            <option>Him</option>
-            <option>Her</option>
-           
-          </select>
-          <button className="bg-black text-white px-4"><FaSearch /></button>
-        </div>
+        {/* Center: Menu (desktop) */}
+        <nav className="hidden md:flex items-center gap-10 text-sm font-semibold">
+          <Link className="hover:text-orange-400 transition-colors" to="/">Home</Link>
+          <Link className="hover:text-orange-400 transition-colors" to="/products">Shop</Link>
+          <Link className="hover:text-orange-400 transition-colors" to="/about-us">About us</Link>
+          {/* <Link className="hover:text-orange-400 transition-colors" to="/blog">Blog</Link> */}
+          <Link className="hover:text-orange-400 transition-colors" to="/contact-us">contact</Link>
+        
+        </nav>
 
         {/* Right: Icons */}
-        <div className="flex items-center gap-6 text-gray-700">
-          <button 
-            onClick={() => setIsRegisterModalOpen(true)}
-            className="flex items-center gap-1 hover:text-black transition-colors"
-          >
-            <FaUser /> <span className="hidden md:inline">Account</span>
+        <div className="flex items-center gap-6 text-white">
+          <button className="hover:text-orange-400 transition-colors" aria-label="Search">
+            <FaSearch />
           </button>
-          <Link to="/wishlist" className="flex items-center gap-1  hover:text-black">
-            <FaHeart /> <span className="hidden md:inline">Wishlist</span>
+          <Link to="/login" className="hover:text-orange-400 transition-colors" aria-label="Account">
+            <FaUser />
           </Link>
-          <Link to="/cart" className="flex items-center gap-1  hover:text-black">
-            <FaShoppingCart /> <span className="hidden md:inline">Cart</span>
+          <Link to="/wishlist" className="hover:text-orange-400 transition-colors" aria-label="Wishlist">
+            <FaHeart />
+          </Link>
+          <Link to="/cart" className="hover:text-orange-400 transition-colors" aria-label="Cart">
+            <FaShoppingCart />
           </Link>
         </div>
       </div>
 
-      {/* 🔹 Bottom Menu */}
-      <nav className="hidden md:flex justify-center gap-8 py-4 text-sm font-medium bg-white shadow-sm w-full">
-        <Link to="/">Home</Link>
-        <Link to="/about-us">About Us</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/contact-us">Contact Us</Link>
-        <Link to="/login">Sign In</Link>
-        
-      </nav>
-
-      {/* 🔹 Mobile Menu (collapsible) */}
+      {/* Mobile Menu (collapsible) */}
       {isMenuOpen && (
-        <nav className="md:hidden flex flex-col gap-4 py-4 px-6 text-sm font-medium bg-white shadow-sm w-full">
-          {/* Optional: quick mobile search */}
-          <div className="flex border rounded overflow-hidden h-11">
-            <input
-              type="text"
-              placeholder="Search for items..."
-              className="flex-1 px-3 outline-none"
-            />
-            <button className="bg-black text-white px-4"><FaSearch /></button>
-          </div>
-          <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-          <Link to="/about-us" onClick={() => setIsMenuOpen(false)}>About Us</Link>
-          <Link to="/products" onClick={() => setIsMenuOpen(false)}>Products</Link>
-          <Link to="/blog" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-          <Link to="/contact-us" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-          <Link to="/login" onClick={() => setIsMenuOpen(false)}>Sign In</Link>
+        <nav className="md:hidden flex flex-col gap-4 py-4 px-6 text-sm font-medium bg-black text-white w-full border-t border-white/10">
+          <Link to="/" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-400">Home</Link>
+          <Link to="/products" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-400">Shop</Link>
+          <Link to="/about-us" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-400">About us</Link>
+          {/* <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-400">Blog</Link> */}
+          <Link to="/contact-us" onClick={() => setIsMenuOpen(false)} className="hover:text-orange-400">Contact</Link>
+          
         </nav>
       )}
-      
-      {/* Register Modal */}
-      {/* <RegisterModal 
-        isOpen={isRegisterModalOpen} 
-        onClose={() => setIsRegisterModalOpen(false)} 
-      /> */}
     </header>
   );
 }

@@ -6,6 +6,7 @@ import Contact from "./pages/Contact-us";
 import Blog from "./pages/Blog";
 import Login from "./pages/login";
 import Products from "./pages/Products";
+import Wishlist from "./pages/Wishlist";
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-     
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
     </Router>
   );

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { FaUser, FaLock, FaFacebookF, FaGoogle, FaTwitter } from "react-icons/fa";
+import { FaUser, FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import login from "../assets/login.jpg";
+import login from "../assets/aboutusbanner.png";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,9 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
+
+  // UI tab state (Sign In / Register)
+  const [activeTab, setActiveTab] = useState("signin");
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -25,155 +28,184 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-black">
-      {/* Main Section */}
+    <div className="min-h-screen flex flex-col bg-black/90">
+      {/* Centered Modal-style panel */}
       <div className="flex-1 flex items-center justify-center p-4">
-        {/* Container for both image and form */}
-        <div className="w-full max-w-5xl flex flex-col md:flex-row rounded-xl overflow-hidden shadow-2xl min-h-[600px] bg-white">
-          {/* Image Section - Full height on desktop */}
-          <div className="hidden md:flex md:w-[45%] h-auto">
-            <img
-              src={login}
-              alt="Login Illustration"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Form Section - Centered content */}
-          <div className="w-full md:w-[55%] p-8 md:p-12 flex flex-col justify-center">
-            <h2 className="text-2xl font-bold text-center text-gray-800">
-              Sign in to your account
-            </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or{" "}
-              <Link
-                to="/register"
-                className="font-medium text-[#739ec9] hover:text-[#5a8bc5]"
+        <div
+          className="w-full max-w-[720px] relative rounded-md shadow-2xl overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${login})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Content wrapper */}
+          <div className="px-8 md:px-12 py-10 text-white/90 min-h-[520px]">
+            {/* Tabs */}
+            <div className="flex items-center gap-10 text-center text-2xl font-semibold justify-center">
+              <button
+                className={`pb-2 transition-colors ${
+                  activeTab === "signin" ? "text-white" : "text-white/70 hover:text-white"
+                }`}
+                onClick={() => setActiveTab("signin")}
+                type="button"
               >
-                create a new account
-              </Link>
-            </p>
+                Sign In
+              </button>
+              <button
+                className={`pb-2 transition-colors ${
+                  activeTab === "register" ? "text-white" : "text-white/70 hover:text-white"
+                }`}
+                onClick={() => setActiveTab("register")}
+                type="button"
+              >
+                Register
+              </button>
+            </div>
+            {/* Gold underline indicator */}
+            <div className="mt-2 h-[2px] w-full bg-white/30">
+              <div
+                className={`h-[2px] bg-[#d1a06b] transition-all duration-300 ${
+                  activeTab === "signin" ? "w-1/3 ml-[16.6%]" : "w-1/3 ml-[50%]"
+                }`}
+              />
+            </div>
 
-            <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
-              {/* Email */}
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email address
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaUser className="h-4 w-4 text-gray-400" />
-                  </span>
+            {/* Forms */}
+            {activeTab === "signin" ? (
+              <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className="block text-sm mb-2 text-white/90">
+                    Email address <span className="text-[#d1a06b]">*</span>
+                  </label>
+                  <div className="relative">
+                    <span className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                      <FaUser className="h-4 w-4 text-white/50" />
+                    </span>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="block w-full pl-9 pr-3 py-2 text-sm bg-white text-black rounded-sm h-11 outline-none border border-white/20 focus:border-[#d1a06b]"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                </div>
+
+                {/* Password */}
+                <div>
+                  <label htmlFor="password" className="block text-sm mb-2 text-white/90">
+                    Password <span className="text-[#d1a06b]">*</span>
+                  </label>
+                  <div className="relative">
+                    <span className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                      <FaLock className="h-4 w-4 text-white/50" />
+                    </span>
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      autoComplete="current-password"
+                      required
+                      value={formData.password}
+                      onChange={handleChange}
+                      className="block w-full pl-9 pr-3 py-2 text-sm bg-white text-black rounded-sm h-11 outline-none border border-white/20 focus:border-[#d1a06b]"
+                      placeholder="Enter your password"
+                    />
+                  </div>
+                </div>
+
+                {/* Remember + Forgot */}
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center gap-2 text-sm">
+                    <input
+                      id="remember-me"
+                      name="rememberMe"
+                      type="checkbox"
+                      checked={formData.rememberMe}
+                      onChange={handleChange}
+                      className="h-4 w-4 rounded border-white/30 bg-transparent text-[#d1a06b] focus:ring-[#d1a06b]"
+                    />
+                    <span className="text-white/90">Remember me</span>
+                  </label>
+                  <a href="#" className="text-sm font-semibold text-white hover:text-[#d1a06b]">
+                    Forgot Your Password?
+                  </a>
+                </div>
+
+                {/* CTA */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2 bg-[#d1a06b] text-black font-semibold px-6 py-2 rounded-sm shadow hover:bg-[#c89159] transition-colors"
+                  >
+                    Sign In <span className="text-black">→</span>
+                  </button>
+                </div>
+
+                {/* Bottom Divider */}
+                <div className="mt-6 border-t border-white/30" />
+              </form>
+            ) : (
+              <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div>
+                  <label htmlFor="reg-email" className="block text-sm mb-2 text-white/90">
+                    Your email address <span className="text-[#d1a06b]">*</span>
+                  </label>
                   <input
-                    id="email"
-                    name="email"
+                    id="reg-email"
+                    name="regEmail"
                     type="email"
-                    autoComplete="email"
                     required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="focus:ring-[#739ec9] focus:border-[#739ec9] block w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-md h-10"
+                    className="block w-full px-3 py-2 text-sm bg-white text-black rounded-sm h-11 outline-none border border-white/20 focus:border-[#d1a06b]"
                     placeholder="Enter your email"
                   />
                 </div>
-              </div>
 
-              {/* Password */}
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Password
-                </label>
-                <div className="mt-1 relative rounded-md shadow-sm">
-                  <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <FaLock className="h-4 w-4 text-gray-400" />
-                  </span>
+                <div>
+                  <label htmlFor="reg-password" className="block text-sm mb-2 text-white/90">
+                    Password <span className="text-[#d1a06b]">*</span>
+                  </label>
                   <input
-                    id="password"
-                    name="password"
+                    id="reg-password"
+                    name="regPassword"
                     type="password"
-                    autoComplete="current-password"
                     required
-                    value={formData.password}
-                    onChange={handleChange}
-                    className="focus:ring-[#739ec9] focus:border-[#739ec9] block w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-md h-10"
-                    placeholder="Enter your password"
+                    className="block w-full px-3 py-2 text-sm bg-white text-black rounded-sm h-11 outline-none border border-white/20 focus:border-[#d1a06b]"
+                    placeholder="Create a password"
                   />
                 </div>
-              </div>
 
-              {/* Remember Me + Forgot Password */}
-              <div className="flex items-center justify-between">
-                <label className="flex items-center text-sm text-gray-900">
-                  <input
-                    id="remember-me"
-                    name="rememberMe"
-                    type="checkbox"
-                    checked={formData.rememberMe}
-                    onChange={handleChange}
-                    className="h-4 w-4 text-[#739ec9] border-gray-300 rounded focus:ring-[#739ec9]"
-                  />
-                  <span className="ml-2">Remember me</span>
+                <label className="flex items-start gap-3 text-sm">
+                  <input type="checkbox" className="mt-1 h-4 w-4 rounded border-white/30 bg-transparent text-[#d1a06b] focus:ring-[#d1a06b]" />
+                  <span className="text-white/90">Subscribe to stay updated with new products and offers!</span>
                 </label>
 
-                <a
-                  href="#"
-                  className="text-sm font-medium text-[#739ec9] hover:text-[#5a8bc5]"
-                >
-                  Forgot your password?
-                </a>
-              </div>
+                <div className="text-center pt-2">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2 bg-[#d1a06b] text-black font-semibold px-6 py-2 rounded-sm shadow hover:bg-[#c89159] transition-colors"
+                  >
+                    Register <span className="text-black">→</span>
+                  </button>
+                </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                className="w-full flex justify-center items-center py-2 px-4 rounded-md shadow-sm text-sm font-medium text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#739ec9] transition duration-200 h-10"
-              >
-                Sign in
-              </button>
-            </form>
+                <div className="mt-8 border-t border-white/30" />
 
-            {/* Divider */}
-            <div className="mt-8">
-              <div className="relative flex items-center justify-center my-4">
-                <div className="flex-grow border-t border-gray-300"></div>
-                <span className="px-3 text-sm text-gray-500 bg-white">
-                  Or continue with
-                </span>
-                <div className="flex-grow border-t border-gray-300"></div>
-              </div>
-
-              {/* Social Login */}
-              <div className="mt-6 grid grid-cols-3 gap-3">
-                <a
-                  href="#"
-                  className="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white hover:bg-gray-50"
-                >
-                  <FaFacebookF className="h-5 w-5 text-blue-600" />
-                </a>
-                <a
-                  href="#"
-                  className="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white hover:bg-gray-50"
-                >
-                  <FaGoogle className="h-5 w-5 text-red-500" />
-                </a>
-                <a
-                  href="#"
-                  className="flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white hover:bg-gray-50"
-                >
-                  <FaTwitter className="h-5 w-5 text-sky-500" />
-                </a>
-              </div>
-            </div>
+                <p className="mt-6 text-sm text-white/70">
+                  To register as a wholesale customer, <a href="#" className="text-[#d1a06b] underline">click here</a>
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </div>
-      
+
       {/* Footer */}
       <div className="mt-auto">
         <Footer />
